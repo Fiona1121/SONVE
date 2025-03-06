@@ -150,30 +150,12 @@ SONVE/
 ## 🚧 Roadmap
 
 - [x] **Project Setup & Environment Configuration**
-- [x] **Audio Processing & Feature Extraction**
+- [ ] **Audio Processing & Feature Extraction**
 - [ ] **ML Model Development & Training**
 - [ ] **Backend API Integration**
 - [ ] **Frontend UI Development**
 - [ ] **End-to-End Integration & Testing**
 - [ ] **Deployment to Production**
 - [ ] **Performance Optimization & Scaling**
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature/YourFeature`.
-3. Commit your changes: `git commit -m 'Add new feature'`.
-4. Push to your branch: `git push origin feature/YourFeature`.
-5. Open a pull request.
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## 📬 Contact
-
-For questions or feedback, please email [your-email@example.com].
 
 _Transform your voice into art with SONVÉ!_
