@@ -30,8 +30,6 @@ git clone https://github.com/your-username/SONVE.git
 cd SONVE
 ```
 
-````
-
 ### 2️⃣ Backend Setup
 
 - **Navigate to the backend directory:**
@@ -159,4 +157,3 @@ SONVE/
 - [ ] **Performance Optimization & Scaling**
 
 _Transform your voice into art with SONVÉ!_
-````
