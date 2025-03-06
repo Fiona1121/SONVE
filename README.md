@@ -1,4 +1,3 @@
-````markdown
 # SONVÉ 🎤✨
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
@@ -30,6 +29,7 @@
 git clone https://github.com/your-username/SONVE.git
 cd SONVE
 ```
+
 ````
 
 ### 2️⃣ Backend Setup
@@ -53,7 +53,7 @@ cd SONVE
   pip install -r requirements.txt
   ```
 
-- **Configure Environment Variables:**  
+- **Configure Environment Variables:**
   Create a `.env` file in the `backend` directory:
 
   ```ini
@@ -141,10 +141,10 @@ SONVE/
 
 ## ⚙️ Usage
 
-- **Local Development:**  
+- **Local Development:**
   Use the UI to record or upload audio. The backend processes your voice, classifies your emotion, and generates a 2D design pattern that reflects your mood.
 
-- **API Testing:**  
+- **API Testing:**
   Visit [http://localhost:8000/docs](http://localhost:8000/docs) for interactive API documentation.
 
 ## 🚧 Roadmap
@@ -159,3 +159,4 @@ SONVE/
 - [ ] **Performance Optimization & Scaling**
 
 _Transform your voice into art with SONVÉ!_
+````
