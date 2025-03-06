@@ -1,107 +1,179 @@
-# SONVÉ
+````markdown
+# SONVÉ 🎤✨
 
-**SONVÉ** transforms your voice into wearable art. By harnessing advanced audio signal processing and machine learning, it analyzes the emotions in your speech and dynamically generates unique accessory designs. Each piece is a visual manifestation of your mood—personal, expressive, and one-of-a-kind.
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-12-blue)](https://nextjs.org/)
 
----
+> **SONVÉ** transforms your voice into wearable art. By analyzing your speech with advanced signal processing and machine learning, SONVÉ creates unique accessory designs that reflect your emotions. Every design is as unique as your mood!
 
-## Overview
+## 🚀 Features
 
-SONVÉ is an innovative project that bridges technology and art by turning your voice into personalized accessory designs. The system extracts sound features using DTFT for pattern generation and MFCC for emotion classification. The resulting emotion is mapped to design attributes like color and pattern, creating a truly unique piece of wearable art every time you speak.
+- 🎙 **Voice-Activated Design** – Converts speech into dynamic accessory patterns.
+- 🤖 **Emotion Detection** – Utilizes a CNN-LSTM model to classify your emotions from audio.
+- 🔊 **Signal Processing** – Extracts dominant frequencies (via DTFT) and MFCC features from your voice.
+- 🎨 **Design Mapping** – Maps detected emotions to design elements (like color and pattern).
+- 💡 **Cost-Effective & Scalable** – Built on free-tier cloud services for effortless deployment.
 
----
+## 🛠️ Tech Stack
 
-## Features
-
-- **Voice-Activated Design:** Convert speech into dynamic accessory patterns.
-- **Emotion Detection:** Leverages a CNN-LSTM model to classify your emotions from audio.
-- **Signal Processing:** Uses DTFT and MFCC to capture the essence of your voice.
-- **Unique Aesthetics:** Each design is a visual representation of your mood.
-- **Cost-Effective & Scalable:** Built on free-tier cloud services for easy deployment.
-
----
-
-## Tech Stack
-
-- **Backend:** Python, FastAPI, TensorFlow/Keras, Librosa
-- **Frontend:** Next.js, React, Three.js
+- **Backend:** Python, FastAPI, TensorFlow/Keras, Librosa, Uvicorn
+- **Frontend:** Next.js, React, Three.js (for visualizations)
 - **Database:** PostgreSQL (via Supabase) or SQLite
 - **Storage:** Cloudinary
 - **Deployment:** Docker, Vercel, Render/Fly.io/Cloud Run
 
----
+## 📥 Installation
 
-## Installation
+### 1️⃣ Clone the Repository
 
-### Prerequisites
+```sh
+git clone https://github.com/your-username/SONVE.git
+cd SONVE
+```
+````
 
-- Python 3.9+
-- Node.js 18+
-- Git
+### 2️⃣ Backend Setup
 
-### Quick Start
+- **Navigate to the backend directory:**
 
-1. **Clone the Repository:**
+  ```sh
+  cd backend
+  ```
 
-   ```bash
-   git clone https://github.com/<your-username>/SONVE.git
-   cd SONVE
-   ```
+- **Create & activate a virtual environment:**
 
-2. **Backend Setup:**
+  ```sh
+  python3 -m venv venv
+  source venv/bin/activate  # On Windows: venv\Scripts\activate
+  ```
 
-   - Navigate to the `backend` directory:
-     ```bash
-     cd backend
-     python3 -m venv venv
-     source venv/bin/activate
-     ```
-   - Install dependencies:
-     ```bash
-     pip install -r requirements.txt
-     ```
-   - Create a `.env` file with your environment variables.
-   - Start the FastAPI server:
-     ```bash
-     uvicorn api.main:app --reload
-     ```
+- **Install dependencies:**
 
-3. **Frontend Setup:**
-   - Navigate to the `frontend` directory:
-     ```bash
-     cd ../frontend
-     ```
-   - Install Node dependencies:
-     ```bash
-     npm install
-     ```
-   - Create a `.env.local` file with:
-     ```env
-     NEXT_PUBLIC_API_URL=http://localhost:8000
-     ```
-   - Run the development server:
-     ```bash
-     npm run dev
-     ```
+  ```sh
+  pip install -r requirements.txt
+  ```
 
----
+- **Configure Environment Variables:**  
+  Create a `.env` file in the `backend` directory:
 
-## Usage
+  ```ini
+  API_HOST=0.0.0.0
+  API_PORT=8000
+  DATABASE_URL=<your_database_url>
+  CLOUDINARY_CLOUD_NAME=<your_cloudinary_cloud_name>
+  CLOUDINARY_API_KEY=<your_cloudinary_api_key>
+  CLOUDINARY_API_SECRET=<your_cloudinary_api_secret>
+  MODEL_PATH=./model.h5
+  ```
+
+- **Start the FastAPI Server:**
+
+  ```sh
+  uvicorn api.main:app --reload
+  ```
+
+### 3️⃣ Frontend Setup
+
+- **Navigate to the frontend directory:**
+
+  ```sh
+  cd ../frontend
+  ```
+
+- **Install Node dependencies:**
+
+  ```sh
+  npm install
+  ```
+
+- **Create a `.env.local` file:**
+
+  ```ini
+  NEXT_PUBLIC_API_URL=http://localhost:8000
+  ```
+
+- **Start the Next.js Development Server:**
+
+  ```sh
+  npm run dev
+  ```
+
+- Open your browser at [http://localhost:3000](http://localhost:3000) to see the app.
+
+## 📂 Project Structure
+
+```plaintext
+SONVE/
+├── backend/
+│   ├── audio_processing/
+│   │   ├── record_audio.py       # Record or import audio
+│   │   ├── preprocess.py         # Noise reduction & normalization
+│   │   └── feature_extraction.py # MFCC & DTFT extraction functions
+│   ├── ml_model/
+│   │   ├── train_model.py        # CNN-LSTM model training script
+│   │   └── predict_emotion.py    # Emotion prediction logic
+│   ├── api/
+│   │   ├── main.py               # FastAPI application entry point
+│   │   └── routes/
+│   │       ├── audio.py          # Audio processing endpoints
+│   │       └── health.py         # Health check endpoint
+│   ├── database/
+│   │   ├── models.py             # Database schema models
+│   │   └── crud.py               # CRUD operations
+│   ├── requirements.txt          # Python dependencies
+│   └── Dockerfile                # Docker configuration for backend
+├── frontend/
+│   ├── app/                      # Next.js App Directory
+│   │   ├── layout.js             # Global layout component
+│   │   └── page.js               # Main page with audio upload & preview UI
+│   ├── components/
+│   │   └── TwoDPattern.js        # 2D pattern visualization component
+│   ├── services/
+│   │   └── api.js                # API communication layer
+│   ├── next.config.js            # Next.js configuration
+│   ├── package.json              # Node dependencies
+│   └── Dockerfile                # Docker configuration for frontend
+└── deployment/
+    ├── backend-deployment.yaml   # Kubernetes deployment for backend
+    ├── frontend-deployment.yaml  # Kubernetes deployment for frontend
+    └── ingress.yaml              # Ingress configuration for routing
+```
+
+## ⚙️ Usage
 
 - **Local Development:**  
-  Use the web UI to upload or record audio. The backend processes your voice, classifies the emotion, and dynamically generates a 2D design pattern that visually reflects your mood.
+  Use the UI to record or upload audio. The backend processes your voice, classifies your emotion, and generates a 2D design pattern that reflects your mood.
 
 - **API Testing:**  
-  Check the FastAPI docs at [http://localhost:8000/docs](http://localhost:8000/docs) to explore available endpoints.
+  Visit [http://localhost:8000/docs](http://localhost:8000/docs) for interactive API documentation.
 
----
+## 🚧 Roadmap
 
-## Roadmap
+- [x] **Project Setup & Environment Configuration**
+- [x] **Audio Processing & Feature Extraction**
+- [ ] **ML Model Development & Training**
+- [ ] **Backend API Integration**
+- [ ] **Frontend UI Development**
+- [ ] **End-to-End Integration & Testing**
+- [ ] **Deployment to Production**
+- [ ] **Performance Optimization & Scaling**
 
-- [x] Setup & Environment Configuration
-- [ ] Backend Development: Audio processing, ML integration, Cloudinary storage.
-- [ ] Frontend Development: Minimal UI, API integration, 3D visualization.
-- [ ] Integration & Testing
-- [ ] Deployment & Monitoring
-- [ ] Optimization & Scaling
+## 🤝 Contributing
 
-_Turn your voice into art with SONVÉ!_
+Contributions are welcome!
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature/YourFeature`.
+3. Commit your changes: `git commit -m 'Add new feature'`.
+4. Push to your branch: `git push origin feature/YourFeature`.
+5. Open a pull request.
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## 📬 Contact
+
+For questions or feedback, please email [your-email@example.com].
+
+_Transform your voice into art with SONVÉ!_
