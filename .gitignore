@@ -169,3 +169,14 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Node
+node_modules/
+.next/
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store

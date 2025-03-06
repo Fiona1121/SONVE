@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+tensorflow
+librosa
+scipy
+numpy
+pandas
+python-dotenv
+sqlalchemy
+cloudinary
